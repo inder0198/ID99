@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns:class="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>Display</title>
+    <style>
+
+        h2{
+        padding-left:25px;
+        font-size:35px;
+        margin:20px;
+        color:white;
+        }
+
+        .picture{
+        background-image:url("{% static 'bg6.jpg' %}");
+        background-repeat:no repeat;
+        background-attachment:fixed;
+        background-size:cover;
+        background-color:black;
+        background-position:center;
+
+
+        }
+
+        button{
+        padding: 6px 10px;
+        border: 2px solid white;
+        background-color: transparent;
+        color: white;
+        margin-right: 20px;
+        font-size: 1.5rem;
+        border-radius: 10px;
+        cursor:pointer;
+        }
+
+        .container{
+        }
+
+        .transbox{
+        font-size:18px;
+        margin:35px;
+        justify:center;
+        background-color:transparent;
+        color:white;
+        border:1px solid white;
+        border-radius:25px;
+        opacity:1;
+
+
+        min-width:auto;
+        word-wrap:break-word;
+        }
+
+        .transbox1{
+        text-align:center;
+        background-color:black;
+        color:white;
+        border:1px solid white;
+        border-radius:10px;
+        padding:10px;
+        opacity:1;
+        }
+
+       p.c{
+       padding: 10px 10px 10px 40px;
+       }
+
+       .btn{
+
+       }
+
+    </style>
+</head>
+<body class="picture">
+<!--<h2 align="left">Blogs <a href="{% url 'home' %}"><button type="button">Home</button></a></h2>-->
+<!--<h2 align="right"><span style="margin-right:88%">Blogs </span><a href="{% url 'home' %}" style="align:right"><button class="btn" ><i class="fa fa-home"></i></button></a></h2>-->
+<form action="/" method="" align="right"><button type="submit" class="btn" ><i class="fa fa-home"></i></button></form>
+<h2>Blogs </h2>
+{% csrf_token %}
+
+<div class="container">
+    {% for data in data %}
+    <fieldset class="transbox">
+        <legend class="transbox1">{{data.Title}}</legend>
+        <p>Created by <b>{{data.Name}}</b> at <b>{{data.dat}}</b></p>
+<!--        <div><span>Created by:{{data.Name}}</span><span align="right">Created at {{data.dat}}</span></div>-->
+        <p class="c">{{data.Message}}</p>
+    </fieldset>
+    {% endfor %}
+</div>
+
+</body>
+</html>

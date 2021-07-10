@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Add</title>
+    <style>
+        td{
+        padding:10px;
+        }
+
+        .picture{
+        background-image:url("{% static 'bg.jpg' %}");
+        background-attachment:fixed;
+        background-repeat:no repeat;
+        background-size:cover;
+        background-color:black;
+        background-position:center;
+
+        }
+
+        label{
+        color:white;
+        font-size:20px;
+        }
+
+        h1{
+        color:white;
+        font-size:45px;
+        margin-left:270px;
+        margin-top:40px;
+        }
+
+        input{
+        color:white;
+        border:2px solid white;
+        font-size:20px;
+        width:450px;
+        background-color:transparent;
+        border-radius:7px;
+        }
+        textarea{
+        width:450px;
+        color:white;
+        border:2px solid white;
+        font-size:20px;
+        background-color:transparent;
+        border-radius:10px;
+        height:200px;
+
+        }
+
+        select{
+        font-size:30px;
+        }
+
+
+
+        button{
+        padding: 6px 10px;
+        border: 2px solid white;
+        background-color: transparent;
+        color: white;
+        margin-right: 20px;
+        font-size: 1.5rem;
+        border-radius: 10px;
+        cursor:pointer;
+        }
+
+        table{
+        margin-left:170px;
+        margin-top:70px;
+        }
+
+        .btn{
+
+        }
+
+    </style>
+</head>
+<body class="picture">
+<form action="/" method="" align="right"><button type="submit" class="btn" ><i class="fa fa-home"></i></button></form>
+<h1>Add Page</h1>
+<form action="" method="post">
+    {% csrf_token %}
+<table align="center">
+    <tr>
+        <td><label>Name</label></td>
+        <td>{{form.Name}}</td>
+    </tr>
+
+    <tr>
+        <td><label>Title</label></td>
+        <td>{{form.Title}}</td>
+    </tr>
+
+    <tr>
+        <td><label>Message</label></td>
+        <td>{{form.Message}}</td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="text-align:center"><button type="submit">Add</button>
+        <a href="{% url 'display' %}"><button type="button">Display</button></a></td>
+    </tr>
+
+
+</table>
+</form>
+</body>
+</html>

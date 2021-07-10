@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        .abc{
+        background-image:url("{% static 'bg2.jpg' %}");
+        background-repeat:no repeat;
+        background-size:cover;
+<!--        background-color:black;-->
+        background-position:center;
+
+        }
+
+        div.container{
+        margin:20%;
+        }
+
+        button{
+        padding: 6px 20px;
+        border: 2px solid white;
+        background-color: transparent;
+        color: white;
+        margin: 17px;
+        font-size: 1.5rem;
+        border-radius: 10px;
+        cursor:pointer;
+        }
+
+        h1{
+        color:white;
+        font-size:35px;
+        }
+
+
+    </style>
+</head>
+<body class="abc">
+
+<div class="container" align="center">
+<h1>Welcome to my Blog Project !</h1>
+<a href="{% url 'add' %}"><button type="button">Add</button></a>
+<a href="{% url 'display' %}"><button type="button">Display</button></a>
+</div>
+
+</body>
+</html>
